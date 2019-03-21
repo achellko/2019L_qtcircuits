@@ -4,8 +4,10 @@ from PyQt5.QtWebEngineWidgets import QWebEngineView
 from PyQt5.QtWidgets import *
 import os
 
-def tr(s):
-    return app.translate("@default",s)
+import cirapp
+from cirapp import tr
+from actions import CircuitsActions
+
 
 class CircuitsLists(QWidget):
     def __init__(self):
@@ -30,9 +32,6 @@ class Welcome(QWidget):
         self.web.load(QUrl(f"file:{startFile}"))
 
 
-
-
-
 class CircuitsEditors(QWidget):
     def __init__(self):
         super(QWidget, self).__init__()
@@ -41,8 +40,15 @@ class CircuitsEditors(QWidget):
         self.layout().addWidget(self.tabs)
         self.tabs.addTab(Welcome(), tr("Witaj!"))
 
-app = QApplication([])
+def create_menu(mw, actions):
+    mainbar = mw.menuBar()
+    # mFile = QMenu(tr("Plik"), mainbar)
+    # mainbar.addMenu(mFile)
+    mFile = mainbar.addMenu(tr("Plik"))
+    mFile.addAction(actions.actions.get("create-circuit"))
 
+# app = QApplication([])
+app = cirapp.init()
 translator = QTranslator()
 translator.load(QLocale(), "qtcircuits", "_", os.path.dirname(os.path.realpath(__file__)))
 print(app.installTranslator(translator))
@@ -53,5 +59,9 @@ dockList = QDockWidget(tr("Lista projektow"), mw)
 mw.addDockWidget(Qt.LeftDockWidgetArea, dockList)
 dockList.setWidget(CircuitsLists())
 mw.setCentralWidget(CircuitsEditors())
+
+actions = CircuitsActions()
+create_menu(mw, actions)
+
 mw.show()
 app.exec_()
