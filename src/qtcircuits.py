@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import *
 import os
 
 import cirapp
+from canvasexample import QtCircuitCanvas
 from cirapp import tr
 from actions import CircuitsActions
 
@@ -39,6 +40,7 @@ class CircuitsEditors(QWidget):
         self.tabs = QTabWidget()
         self.layout().addWidget(self.tabs)
         self.tabs.addTab(Welcome(), tr("Witaj!"))
+        self.tabs.addTab(QtCircuitCanvas(), tr("Przykład płótno!"))
 
 def create_menu(mw, actions):
     mainbar = mw.menuBar()
