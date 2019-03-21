@@ -4,29 +4,34 @@
 <context>
     <name>@default</name>
     <message>
-        <location filename="qtcircuits.py" line="14"/>
+        <location filename="qtcircuits.py" line="16"/>
         <source>(Kliknij dodaj nowy)</source>
         <translation>(click add new)</translation>
     </message>
     <message>
-        <location filename="qtcircuits.py" line="21"/>
+        <location filename="qtcircuits.py" line="23"/>
         <source>Witamy w przyjaznej aplikacji do rysowania schematow elektrycznych.</source>
         <translation>Welcome to probably the best application for drawing electrical circuits.</translation>
     </message>
     <message>
-        <location filename="qtcircuits.py" line="32"/>
+        <location filename="qtcircuits.py" line="42"/>
         <source>Witaj!</source>
         <translation>Welcome!</translation>
     </message>
     <message>
-        <location filename="qtcircuits.py" line="36"/>
+        <location filename="qtcircuits.py" line="51"/>
         <source>QtCircuit (C) PW GUI Course (Step 1)</source>
         <translation>QtCircuit (C) PW GUI Course (Step 1)</translation>
     </message>
     <message>
-        <location filename="qtcircuits.py" line="37"/>
+        <location filename="qtcircuits.py" line="52"/>
         <source>Lista projektow</source>
         <translation>Projects list</translation>
+    </message>
+    <message>
+        <location filename="qtcircuits.py" line="28"/>
+        <source>start.html</source>
+        <translation>start_en.html</translation>
     </message>
 </context>
 </TS>

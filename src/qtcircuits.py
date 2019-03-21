@@ -1,5 +1,6 @@
 # coding=utf8
 from PyQt5.QtCore import *
+from PyQt5.QtWebEngineWidgets import QWebEngineView
 from PyQt5.QtWidgets import *
 import os
 
@@ -22,6 +23,14 @@ class Welcome(QWidget):
         lbl = QLabel(tr("Witamy w przyjaznej aplikacji "
                      "do rysowania schematow elektrycznych."))
         self.layout().addWidget(lbl, 0, 0)
+        self.web = QWebEngineView()
+        self.layout().addWidget(self.web, 2, 0)
+        start = tr("start.html")
+        startFile = f"{os.path.dirname(os.path.realpath(__file__))}/{start}"
+        self.web.load(QUrl(f"file:{startFile}"))
+
+
+
 
 
 class CircuitsEditors(QWidget):
