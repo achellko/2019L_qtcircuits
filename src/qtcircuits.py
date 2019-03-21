@@ -12,7 +12,7 @@ from actions import CircuitsActions
 
 class CircuitsLists(QWidget):
     def __init__(self):
-        super(QWidget, self).__init__()
+        super(CircuitsLists, self).__init__()
         self.setLayout(QVBoxLayout())
         self.list = QListWidget()
         self.layout().addWidget(self.list)
@@ -21,7 +21,7 @@ class CircuitsLists(QWidget):
 
 class Welcome(QWidget):
     def __init__(self):
-        super(QWidget, self).__init__()
+        super(Welcome, self).__init__()
         self.setLayout(QGridLayout())
         lbl = QLabel(tr("Witamy w przyjaznej aplikacji "
                      "do rysowania schematow elektrycznych."))
@@ -35,7 +35,7 @@ class Welcome(QWidget):
 
 class CircuitsEditors(QWidget):
     def __init__(self):
-        super(QWidget, self).__init__()
+        super(CircuitsEditors, self).__init__()
         self.setLayout(QVBoxLayout())
         self.tabs = QTabWidget()
         self.layout().addWidget(self.tabs)
