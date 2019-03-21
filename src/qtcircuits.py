@@ -46,6 +46,7 @@ def create_menu(mw, actions):
     # mainbar.addMenu(mFile)
     mFile = mainbar.addMenu(tr("Plik"))
     mFile.addAction(actions.actions.get("create-circuit"))
+    mFile.addAction(actions.actions.get("close-app"))
 
 # app = QApplication([])
 app = cirapp.init()
