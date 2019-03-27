@@ -1,6 +1,8 @@
 from PyQt5.QtGui import QColor, QPalette
 from PyQt5.QtWidgets import *
 
+import cirapp
+
 
 class DialogTemplate(QDialog):
     def __init__(self, resultData=None):
@@ -21,6 +23,8 @@ class DialogTemplate(QDialog):
         self.lblMessage = QLabel("")
         lw.addWidget(self.lblMessage)
         self.pb = QPushButton("x")
+        self.pb = QPushButton(chr(int('f057', 16)))
+        self.pb.setFont(cirapp.get_font_awesome())
         self.pb.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Minimum)
         lw.addWidget(self.pb)
         self.pb.clicked.connect(self.on_clear)
