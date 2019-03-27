@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import *
 from cirapp import tr
 from dialogtemplate import DialogTemplate
 
+
 class CircuitCreateAction(QAction):
     def __init__(self, *__args):
         super().__init__(tr("Nowy schemat"))
@@ -9,16 +10,19 @@ class CircuitCreateAction(QAction):
         self.triggered.connect(self.on_create)
 
     def on_create(self):
-        dlg = QNewCircuitDialog()
-        dlg.exec()
+        res = {}
+        dlg = QNewCircuitDialog(res)
+        r = dlg.exec()
+        if r == QDialog.Accepted:
+            print(f"Zaakceptowano i podano nazwę: {res['newCircuitName']}")
 
 
 class QNewCircuitDialog(DialogTemplate):
-    def __init__(self):
-        super(QNewCircuitDialog, self).__init__()
+    def __init__(self, resultData=None):
+        super(QNewCircuitDialog, self).__init__(resultData)
         self.setWindowTitle("Utwórz nowy schemat")
         w = QWidget(self)
-        w.setContentsMargins(0,0,0,0)
+        w.setContentsMargins(0, 0, 0, 0)
         self.setCentralWidget(w)
         lay = QGridLayout()
         w.setLayout(lay)
@@ -39,6 +43,7 @@ class QNewCircuitDialog(DialogTemplate):
         if len(self.txtName.text()) == 0:
             self.error(tr("Proszę podać nazwę schematu, lub użyć komendy Anuluj."))
         else:
+            self._resultData["newCircuitName"] = self.txtName.text()
             self.accept()
 
     def on_cancel(self):

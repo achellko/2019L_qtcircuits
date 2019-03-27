@@ -3,8 +3,9 @@ from PyQt5.QtWidgets import *
 
 
 class DialogTemplate(QDialog):
-    def __init__(self):
+    def __init__(self, resultData=None):
         super(QDialog, self).__init__()
+        self._resultData = resultData
         self.lay = QVBoxLayout()
         self.setLayout(self.lay)
         self.lay.setContentsMargins(0,0,0,0)
