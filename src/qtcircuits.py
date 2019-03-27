@@ -29,7 +29,7 @@ class Welcome(QWidget):
         self.web = QWebEngineView()
         self.layout().addWidget(self.web, 2, 0)
         start = tr("start.html")
-        startFile = f"{os.path.dirname(os.path.realpath(__file__))}/{start}"
+        startFile = f"{os.path.dirname(os.path.realpath(__file__))}/resources/{start}"
         self.web.load(QUrl(f"file:{startFile}"))
 
 
@@ -53,7 +53,7 @@ def create_menu(mw, actions):
 # app = QApplication([])
 app = cirapp.init()
 translator = QTranslator()
-translator.load(QLocale(), "qtcircuits", "_", os.path.dirname(os.path.realpath(__file__)))
+print(translator.load(QLocale(), "translations/qtcircuits", "_", os.path.dirname(os.path.realpath(__file__))))
 print(app.installTranslator(translator))
 
 mw = QMainWindow()
