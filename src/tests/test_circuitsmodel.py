@@ -48,7 +48,7 @@ class CircuitsModelTest(unittest.TestCase):
 }"""
         c = Circuit()
         c.fromJSON(s)
-        cm = CircuitsContainer()
+        cm = CircuitsStore()
         cm.circuits.append(c)
 
         import tempfile

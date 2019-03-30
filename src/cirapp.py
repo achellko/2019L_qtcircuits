@@ -1,28 +1,46 @@
 from PyQt5.QtGui import QFontDatabase, QFont
 from PyQt5.QtWidgets import QApplication
+from circuitsmodel import CircuitsStore
+import os
 
 
 def tr(s):
-    return app.translate("@default", s)
+    return _app.translate("@default", s)
 
 
 def init():
-    global app
-    app = QApplication([])
+    global _app
+    _app = QApplication([])
 
-    print(QFontDatabase.addApplicationFont("resources/FontAwesome.otf"))
+    appath = os.path.dirname(__file__)
 
-    global fontAwesome
-    fontAwesome = QFont()
-    fontAwesome.setFamily("Font Awesome 5 Free")
+    font_path = os.path.join(appath, "resources", "FontAwesome.otf")
+    res = QFontDatabase.addApplicationFont(font_path)
+    if res == -1:
+        print(f"Błąd podczas wczytywania czcionki Awesome z lokalizacji: {font_path}")
 
-    return app
+    global _font_awesome
+    _font_awesome = QFont()
+    _font_awesome.setFamily("Font Awesome 5 Free")
+
+    store_path = os.path.join(appath, "..", "data", "circuits_datastore.json")
+
+    global _store
+    _store = CircuitsStore(store_path)
+
+    return _app
+
+
+def get_store():
+    global _store
+    return _store
 
 
 def get_app():
-    global app
-    return app
+    global _app
+    return _app
+
 
 def get_font_awesome():
-    global fontAwesome
-    return fontAwesome
+    global _font_awesome
+    return _font_awesome

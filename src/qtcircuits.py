@@ -51,10 +51,10 @@ def create_menu(mw, actions):
     mFile.addAction(actions.actions.get("close-app"))
 
 # app = QApplication([])
-app = cirapp.init()
+_app = cirapp.init()
 translator = QTranslator()
 print(translator.load(QLocale(), "translations/qtcircuits", "_", os.path.dirname(os.path.realpath(__file__))))
-print(app.installTranslator(translator))
+print(_app.installTranslator(translator))
 
 mw = QMainWindow()
 mw.setWindowTitle(tr("QtCircuit (C) PW GUI Course (Step 1)"))
@@ -67,4 +67,4 @@ actions = CircuitsActions()
 create_menu(mw, actions)
 
 mw.show()
-app.exec_()
+_app.exec_()
