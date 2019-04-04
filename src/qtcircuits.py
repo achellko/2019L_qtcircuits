@@ -49,10 +49,14 @@ def create_menu(mw, actions):
     mFile = mainbar.addMenu(tr("Plik"))
     mFile.addAction(actions.actions.get("create-circuit"))
     mFile.addAction(actions.actions.get("close-app"))
+    mFile2 = mainbar.addMenu(tr("Jezyk"))
+    mFile2.addAction(actions.actions.get("polski"))
+    mFile2.addAction(actions.actions.get("english"))
+
 
 # app = QApplication([])
-app = cirapp.init()
 translator = QTranslator()
+app = cirapp.init(translator)
 translator.load(QLocale(), "qtcircuits", "_", os.path.dirname(os.path.realpath(__file__)))
 print(app.installTranslator(translator))
 
