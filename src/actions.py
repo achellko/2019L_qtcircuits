@@ -31,7 +31,7 @@ class CircuitsActions(object):
         cirapp.get_app().exit(0)
 
     def trans_pl(self):
-        translator = cirapp.get_app().translator
+        translator = cirapp.get_translator()
         cirapp.get_app().removeTranslator(translator)
         translator = QTranslator()
         translator.load(QLocale(), "qtcircuits_pl.qm")
@@ -39,9 +39,9 @@ class CircuitsActions(object):
         QMessageBox.information(tr("Witaj"))
 
     def trans_en(self):
-        translator = cirapp.get_app().translator
+        translator = cirapp.get_translator()
         cirapp.get_app().removeTranslator(translator)
         translator = QTranslator()
-        translator.load(QLocale(), "qtcircuits_pl.qm")
+        translator.load(QLocale(), "qtcircuits_en.qm")
         print(cirapp.get_app().installTranslator(translator))
         QMessageBox.information(tr("Witaj"))
