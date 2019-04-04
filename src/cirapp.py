@@ -5,7 +5,7 @@ def tr(s):
     return app.translate("@default",s)
 
 
-def init():
+def init(translator):
     global app
     app = QApplication([])
     return app
