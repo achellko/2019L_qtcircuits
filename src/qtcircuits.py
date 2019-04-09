@@ -6,6 +6,7 @@ import os
 
 import cirapp
 from canvasexample import QtCircuitCanvas
+from canvasexample import QtCircuitRound
 from cirapp import tr
 from actions import CircuitsActions
 
@@ -41,6 +42,10 @@ class CircuitsEditors(QWidget):
         self.layout().addWidget(self.tabs)
         self.tabs.addTab(Welcome(), tr("Witaj!"))
         self.tabs.addTab(QtCircuitCanvas(), tr("Przykład płótno!"))
+        self.tabs.addTab(QtCircuitRound(), tr("Kolo!"))
+    def tabs(self):
+        return self.tabs()
+
 
 def create_menu(mw, actions):
     mainbar = mw.menuBar()
@@ -48,6 +53,8 @@ def create_menu(mw, actions):
     # mainbar.addMenu(mFile)
     mFile = mainbar.addMenu(tr("Plik"))
     mFile.addAction(actions.actions.get("create-circuit"))
+    mFile.addAction(actions.actions.get("create-round"))
+
     mFile.addAction(actions.actions.get("close-app"))
     mFile2 = mainbar.addMenu(tr("Jezyk"))
     mFile2.addAction(actions.actions.get("polski"))

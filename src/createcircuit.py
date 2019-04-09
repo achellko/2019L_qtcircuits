@@ -1,6 +1,8 @@
 from PyQt5.QtWidgets import *
 from cirapp import tr
 from dialogtemplate import DialogTemplate
+#from actions import QtCircuitRound
+#from qtcircuits import CircuitsEditors
 
 class CircuitCreateAction(QAction):
     def __init__(self, *__args):
@@ -11,6 +13,17 @@ class CircuitCreateAction(QAction):
     def on_create(self):
         dlg = QNewCircuitDialog()
         dlg.exec()
+
+class CircuitCreateRound(QAction):
+    def __init__(self, *__args):
+        super().__init__(tr("Dodaj kolo"))
+
+        self.triggered.connect(self.on_create)
+
+    def on_create(self):
+        round_tab = CircuitsEditors.tabs()
+        round_tab.addTab(QtCircuitRound(), tr("Kolo"))
+
 
 
 class QNewCircuitDialog(DialogTemplate):

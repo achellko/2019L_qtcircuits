@@ -14,3 +14,15 @@ class QtCircuitCanvas(QWidget):
         p.setFont(QFont("Arial", 30))
         p.drawRect(10, 10, 50, 50)
         p.end()
+
+class QtCircuitRound(QWidget):
+    def __init__(self, *__args):
+        super().__init__()
+
+    def paintEvent(self, e):
+        p = QPainter()
+        p.begin(self)
+        p.setPen(Qt.blue)
+        p.setFont(QFont("Arial", 30))
+        p.drawEllipse(10, 10, 50, 50)
+        p.end()
