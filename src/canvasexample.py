@@ -24,5 +24,5 @@ class QtCircuitRound(QWidget):
         p.begin(self)
         p.setPen(Qt.blue)
         p.setFont(QFont("Arial", 30))
-        p.drawEllipse(10, 10, 50, 50)
+        p.drawEllipse(10, 15, 50, 50)
         p.end()
